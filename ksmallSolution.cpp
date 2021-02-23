@@ -22,7 +22,7 @@ int kSmallPartition(int startIndex, int endIndex, arrayTracker* anArray)
     } else {
         
         // For array with size of 2+
-        int temp, nextValue, endValue;
+        int nextValue, endValue;
         // Continue through array until pivotIndex >= endIndex.
         do {
         /*
@@ -33,10 +33,9 @@ int kSmallPartition(int startIndex, int endIndex, arrayTracker* anArray)
             endValue = anArray->getItem(endIndex);
 
             if (endValue <= pivotValue) {
-                temp = pivotValue;
                 anArray->setItem(pivotIndex, endValue);
                 anArray->setItem(endIndex, nextValue);
-                anArray->setItem(pivotIndex + 1, temp);
+                anArray->setItem(pivotIndex + 1, pivotValue);
                 pivotIndex++;
             } else {
                 endIndex--;
